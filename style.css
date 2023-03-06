@@ -1,0 +1,248 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+:root{
+        
+    /* Text */
+    --Verydarkdesaturatedblue: hsl(238, 29%, 16%);
+    --Softred: hsl(14, 88%, 65%);
+
+    /* Gradient */
+    /* Background gradient: */
+
+    --Softviolet: hsl(273, 75%, 66%);
+    --Softblue: hsl(240, 73%, 65%);
+
+    /* Neutral */
+    /* Text */
+
+    --Verydarkgrayishblue: hsl(237, 12%, 33%);
+    --Darkgrayishblue: hsl(240, 6%, 50%);
+    --White: #ffffff;
+
+    /* Dividers */
+    --Lightgrayishblue: hsl(240, 5%, 91%);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 220px 0 100px 0;
+    background: linear-gradient(to bottom, var(--Softviolet), var(--Softblue));
+}
+main {
+    background-color: var(--White);
+    width: 90%;
+    padding: 50px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px -3px var(--Verydarkdesaturatedblue);
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.7;
+    color: var(--Verydarkdesaturatedblue);
+}
+h2:hover {
+    color: var(--Softred);
+}
+
+/* Image Container */
+.Image-Container  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 120px;
+}
+.illustrator,
+.shadow {
+    width: 250px;
+}
+.illustrator{
+    position: absolute;
+    display: block;
+    top: 102px;
+    height: auto;
+}
+.shadow {
+    position: absolute;
+    top: 240px;
+}
+.desktop-view {
+    display: flex;
+    margin-left: 0px;
+    justify-content: center;
+}
+
+.box {
+    display: none;
+}
+.shadow {
+    margin-top: 0px;
+    margin-right: 0px;
+    transform: rotateY(0deg);
+}
+/* Container */
+.container {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--Lightgrayishblue);
+}
+.container span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+/* if dropdown is active */
+.container .dpdown.active > img {
+    transform: rotateX(180deg);
+    transition: all 0.5s ease;
+}
+.container .dpdown.active > h2 {
+    color: var(--Verydarkdesaturatedblue);
+    font-weight: 700;
+}
+.container .dpdown.active ~ .content {
+    max-height: 100vh;
+}
+/* dropdown arrows */
+span img {
+    width: 12px;
+    height: 10px;
+}
+.container .content {
+    max-height: 0;
+    overflow: hidden;
+    position: static;
+    visibility: visible;
+    padding: 0 20px 0 0;
+}
+.container .content p {
+    font-size: 13px;
+    color: var(--Darkgrayishblue);
+}
+
+/* responsiveness */
+@media (min-width: 500px) {
+    main {
+        width: 450px;
+    }
+    .Image-Container  {
+        padding-bottom: 170px;
+    }
+    .illustrator,
+    .shadow {
+        width: 350px;
+    }
+    .illustrator{
+        position: absolute;
+        display: block;
+        top: 60px;
+    }
+    .shadow {
+        position: absolute;
+        top: 240px;
+    }
+}
+@media (min-width: 50px) {
+
+}
+@media (min-width: 950px) {
+    body{
+        min-height: 100vh;
+        padding: 20px;
+    }
+    main {
+        display: flex;
+        flex-direction: row;
+        width: 75%;
+        overflow-y: hidden;
+    }
+
+    /* image Container */
+    .Image-Container  {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0px;
+        position: relative; 
+    }
+    .desktop-view {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        justify-content: center;
+        margin-left: -16vw;
+    }
+    .illustrator{
+        position: relative;
+        display: block;
+        top: 0px;
+        height: 350px;
+        width: 350px;
+        z-index: 1;
+    }
+    .box {
+        position: fixed;
+        display: block;
+        width: 150px;
+        height: 180px;
+        margin-top: 50px;
+        margin-left: -135px;
+        z-index: 1001;
+    }
+    .shadow {
+        position: absolute;
+        top: 0px;
+        width: 650px;
+        margin-top: -150px;
+        margin-right: 250px;
+        transform: rotateY(40deg);
+    }
+    .Image-Container {
+        width: 50%;
+    }
+    .Image-Container .illustrator {
+        content: url(./images/illustration-woman-online-desktop.svg);
+    }
+    .Image-Container .shadow {
+        content: url(./images/bg-pattern-desktop.svg);
+    }
+    .Image-Container .box {
+        content: url(./images/illustration-box-desktop.svg);
+    }
+    .accordion {
+        width: 50%;
+        padding-right: 20px;
+    }
+    .container {
+        max-width: 350px; 
+    }
+    h1 {
+        text-align: left;
+        margin-bottom: 10px;
+        font-size: 2.1rem;
+        line-height: 1.5;
+    }
+    .container .content p,
+    h2 {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+} 
